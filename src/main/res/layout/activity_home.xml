@@ -29,7 +29,7 @@
         android:text="@string/home_starters"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:cornerRadius="@dimen/cardview_compat_inset_shadow"
+        app:cornerRadius="@null"
         app:iconTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
