@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <TextView
+        android:id="@+id/mainTitle"
+        android:layout_width="346dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/home_title"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_starters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/subtitle"
+        android:text="@string/home_starters"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:cornerRadius="@dimen/cardview_compat_inset_shadow"
+        app:iconTint="@color/button_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainTitle"
+        app:strokeColor="@color/teal_700" />
+
+    <Button
+        android:id="@+id/button_dishes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="@color/subtitle"
+        android:text="@string/home_dish"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:iconTint="@color/button_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_starters"
+        app:strokeColor="@color/teal_700" />
+
+    <Button
+        android:id="@+id/button_desert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/subtitle"
+        android:text="@string/home_dessert"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_dishes"
+        app:strokeColor="@color/teal_700" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
