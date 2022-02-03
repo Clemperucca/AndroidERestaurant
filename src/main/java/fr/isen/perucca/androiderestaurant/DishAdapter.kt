@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class DishAdapter(private val dishes: List<String>, val onDishCliked : (Dish) -> Unit) : RecyclerView.Adapter<DishAdapter.DishViewHolder>(){
+class DishAdapter(private val dishes: List<String>, val onDishCliked : (String) -> Unit) : RecyclerView.Adapter<DishAdapter.DishViewHolder>(){
 
     class DishViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.textDishView)
