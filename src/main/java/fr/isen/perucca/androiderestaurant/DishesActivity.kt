@@ -1,5 +1,6 @@
 package fr.isen.perucca.androiderestaurant
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +21,10 @@ class DishesActivity : AppCompatActivity() {
         for(i in 1..20){
             data.add("Item"+ i )
         }
-        val adapter = DishAdapter(data)
+        val adapter = DishAdapter(data){
+            val intent = Intent(this,DetailActivity :: class.java)
+            startActivity(intent)
+        }
         binding.dishRecycleView.adapter=adapter
     }
 }

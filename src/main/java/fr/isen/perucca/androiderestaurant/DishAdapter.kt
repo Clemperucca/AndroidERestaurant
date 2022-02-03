@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class DishAdapter(private val dishes: List<String>) : RecyclerView.Adapter<DishAdapter.DishViewHolder>(){
+class DishAdapter(private val dishes: List<String>, val onDishCliked : (Dish) -> Unit) : RecyclerView.Adapter<DishAdapter.DishViewHolder>(){
 
     class DishViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.textDishView)
@@ -23,6 +23,10 @@ class DishAdapter(private val dishes: List<String>) : RecyclerView.Adapter<DishA
 
     override fun onBindViewHolder(holder: DishViewHolder, position: Int) {
         holder.textView.text = dishes[position]
+
+        holder.itemView.setOnClickListener{
+            onDishCliked(dishes[position])
+        }
     }
 
     override fun getItemCount(): Int {
