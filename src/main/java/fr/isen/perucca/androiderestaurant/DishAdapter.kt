@@ -1,36 +1,42 @@
 package fr.isen.perucca.androiderestaurant
 
+
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import fr.isen.perucca.androiderestaurant.databinding.CellDishLayoutBinding
+import com.squareup.picasso.Picasso
+import fr.isen.perucca.androiderestaurant.model.DishModel
 
-class DishAdapter(private val dishes: List<String>, val onDishCliked : (String) -> Unit) : RecyclerView.Adapter<DishAdapter.DishViewHolder>(){
+class DishAdapter(val dishes: List<DishModel>, val onDishClicked: (DishModel) -> Unit) : RecyclerView.Adapter<DishAdapter.DishViewHolder>() {
 
-    class DishViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.textDishView)
-
+    class DishViewHolder(val binding: CellDishLayoutBinding): RecyclerView.ViewHolder(binding.root){
+        val dishPicture = binding.dishPicture
+        val dishName = binding.dishTitle
+        val dishPrice = binding.dishPrice
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DishViewHolder {
-        // Create a new view, which defines the UI of the list item
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.cell_dish_layout, parent, false)
-
-        return DishViewHolder(view)
+        val binding = CellDishLayoutBinding
+            .inflate(LayoutInflater.from(parent.context), parent, false)
+        return DishViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: DishViewHolder, position: Int) {
-        holder.textView.text = dishes[position]
+        val dish = dishes[position]
+        holder.dishName.text = dish.name_fr
 
-        holder.itemView.setOnClickListener{
-            onDishCliked(dishes[position])
+        Picasso.get()
+            .load(dishes[position].getFirstPicture())
+            .placeholder(R.drawable.ic_launcher_foreground)
+            .into(holder.dishPicture)
+
+        holder.dishPrice.text = dishes[position].getFormatedPrice()
+        val data = dishes[position]
+        holder.itemView.setOnClickListener {
+            onDishClicked(data)
         }
     }
 
-    override fun getItemCount(): Int {
-        return dishes.size
-    }
-
+    override fun getItemCount(): Int = dishes.size
 }

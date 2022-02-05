@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.perucca.androiderestaurant.databinding.ActivityHomeBinding
@@ -39,5 +40,4 @@ class HomeActivity : AppCompatActivity() {
         startActivity(changePage)
     }
 }
-
 

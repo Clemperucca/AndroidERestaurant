@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DishesActivity">
+    tools:context=".DishesActivity"
+    android:background="@drawable/fond3">
 
     <TextView
         android:id="@+id/mainDishTitle"
@@ -19,7 +20,7 @@
         app:layout_constraintVertical_bias="0.118" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/dishRecycleView"
+        android:id="@+id/dishesItem"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,5 +28,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainDishTitle"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/cell_dish_layout" />/>
 </androidx.constraintlayout.widget.ConstraintLayout>
