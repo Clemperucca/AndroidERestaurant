@@ -5,70 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
-    android:background="@drawable/fond3">
-
-    <TextView
-        android:id="@+id/mainTitle"
-        android:layout_width="311dp"
-        android:layout_height="52dp"
-        android:fontFamily="monospace"
-        android:text="@string/title4"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066" />
+    android:background="@drawable/fondmain">
 
     <Button
-        android:id="@+id/button_starters"
+        android:id="@+id/button_entries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/main2"
         android:text="@string/home_starters"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:cornerRadius="@null"
         app:iconTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainTitle"
-        app:strokeColor="@color/teal_700" />
+        app:strokeColor="@color/teal_200" />
 
     <Button
         android:id="@+id/button_dishes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:backgroundTint="@color/teal_700"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/main2"
         android:text="@string/home_dish"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:iconTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_starters"
+        app:layout_constraintTop_toBottomOf="@+id/button_entries"
         app:strokeColor="@color/teal_700" />
 
     <Button
         android:id="@+id/button_desert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:backgroundTint="@color/teal_700"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/main2"
         android:text="@string/home_dessert"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_dishes"
-        app:strokeColor="@color/teal_700" />
+        app:strokeColor="@color/main2" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -76,10 +60,25 @@
         android:layout_height="177dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.815"
-        app:layout_constraintStart_toEndOf="@+id/mainTitle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.001"
         app:srcCompat="@drawable/michael_jackson___icon_svg" />
+
+    <Button
+        android:id="@+id/mainTitle"
+        android:layout_width="295dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/main"
+        android:fontFamily="@font/aclonica"
+        android:text="@string/title4"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorLink="@color/main"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

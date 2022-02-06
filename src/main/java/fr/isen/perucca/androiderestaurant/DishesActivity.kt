@@ -15,7 +15,7 @@ import fr.isen.perucca.androiderestaurant.model.DishResult
 import org.json.JSONObject
 import fr.isen.perucca.androiderestaurant.model.DishModel
 
-class DishesActivity : AppCompatActivity(){
+class DishesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDishesBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,12 +24,13 @@ class DishesActivity : AppCompatActivity(){
         setContentView(view)
 
         var categoryType = intent.getStringExtra("category_type")
-        binding.mainDishTitle.text = categoryType
+        binding.dishesTitle.text = categoryType
         if (categoryType != null) {
             loadDishesFromCategory(categoryType)
         }
     }
 
+    //function to get the list of dishes from the API
     private fun loadDishesFromCategory(category: String) {
         val queue = Volley.newRequestQueue(this)
         val url = "http://test.api.catering.bluecodegames.com/menu"
@@ -40,25 +41,26 @@ class DishesActivity : AppCompatActivity(){
             { response ->
 
                 val gson = Gson()
-                val dishresult = gson.fromJson(response.toString(), DishResult::class.java)
+                val dishResult = gson.fromJson(response.toString(), DishResult::class.java)
 
-                displayDishes(dishresult.data.firstOrNull(){it.name_fr==category}?.items ?: listOf())
+                displayDishes(
+                    dishResult.data.firstOrNull() { it.name_fr == category }?.items ?: listOf()
+                )
             }, {
-                Log.e("DishActivity", "Erreur lors de la récupération de la liste des plats")
+                Log.e("DishActivity", "Erreur lors de la récupération")
             })
 
         request.retryPolicy = DefaultRetryPolicy(
             DefaultRetryPolicy.DEFAULT_TIMEOUT_MS,
-
             0,
             1f
         )
         queue.add(request)
     }
 
-    private fun displayDishes(dishresult : List<DishModel>){
+    //function to display the list of dishes
+    private fun displayDishes(dishResult: List<DishModel>) {
 
-        //}
         // getting the recyclerview by its id
         val recyclerview = binding.dishesItem
 
@@ -66,7 +68,7 @@ class DishesActivity : AppCompatActivity(){
         recyclerview.layoutManager = LinearLayoutManager(this)
 
         binding.dishesItem.layoutManager = LinearLayoutManager(this)
-        binding.dishesItem.adapter = DishAdapter(dishresult, ){
+        binding.dishesItem.adapter = DishAdapter(dishResult) {
 
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra("dish", it)

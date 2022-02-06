@@ -10,4 +10,6 @@
     <color name="subtitle">#8BC34A</color>
     <color name="button_color">#2C7A2F</color>
     <color name="grey">#8F8F8F</color>
+    <color name="main">#79624E</color>
+    <color name="main2">#D5B57E</color>
 </resources>

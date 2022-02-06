@@ -9,4 +9,7 @@
     <string name="title4">B\'Eat it</string>
     <string name="titleCo">Connection</string>
     <string name="BasketTitle">Mon panier</string>
+    <string name="Co" />
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

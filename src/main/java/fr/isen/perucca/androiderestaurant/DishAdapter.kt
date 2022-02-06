@@ -4,20 +4,22 @@ package fr.isen.perucca.androiderestaurant
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import fr.isen.perucca.androiderestaurant.databinding.CellDishLayoutBinding
+import fr.isen.perucca.androiderestaurant.databinding.CardViewDesignBinding
 import com.squareup.picasso.Picasso
 import fr.isen.perucca.androiderestaurant.model.DishModel
 
-class DishAdapter(val dishes: List<DishModel>, val onDishClicked: (DishModel) -> Unit) : RecyclerView.Adapter<DishAdapter.DishViewHolder>() {
+class DishAdapter(val dishes: List<DishModel>, val onDishClicked: (DishModel) -> Unit) :
+    RecyclerView.Adapter<DishAdapter.DishViewHolder>() {
 
-    class DishViewHolder(val binding: CellDishLayoutBinding): RecyclerView.ViewHolder(binding.root){
+    class DishViewHolder(val binding: CardViewDesignBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         val dishPicture = binding.dishPicture
-        val dishName = binding.dishTitle
+        val dishName = binding.dishName
         val dishPrice = binding.dishPrice
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DishViewHolder {
-        val binding = CellDishLayoutBinding
+        val binding = CardViewDesignBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
         return DishViewHolder(binding)
     }

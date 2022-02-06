@@ -23,10 +23,9 @@ class DishPictureFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.getString("picture_url")?.let { pictureUrl ->
-            if(pictureUrl=="") {
+            if (pictureUrl == "") {
                 binding.dishPictureFrag.setImageResource(R.drawable.ic_launcher_foreground)
-            }
-            else {
+            } else {
                 Picasso.get()
                     .load(pictureUrl)
                     .error(R.drawable.ic_launcher_foreground)
@@ -37,11 +36,12 @@ class DishPictureFragment : Fragment() {
         }
 
     }
-    companion object{
+
+    companion object {
         fun newInstance(pictureUrl: String) =
             DishPictureFragment().apply {
-                arguments= Bundle().apply{
-                    putString("picture_url",pictureUrl)
+                arguments = Bundle().apply {
+                    putString("picture_url", pictureUrl)
                 }
             }
     }
