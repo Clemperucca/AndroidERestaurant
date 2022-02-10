@@ -3,10 +3,8 @@ package fr.isen.perucca.androiderestaurant
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -26,7 +24,7 @@ class BasketActivity : ToolActivity() {
         val view = binding.root
         setContentView(view)
         sharedPreferences = getSharedPreferences(DetailActivity.APP_PREFS, Context.MODE_PRIVATE)
-        binding.basketTitle.text = "Votre Panier"
+        binding.basketTitle.text = "Mon Panier"
         verifIfConnect()
 
         val filename = "/panier.json"
@@ -51,12 +49,11 @@ class BasketActivity : ToolActivity() {
         }
     }
 
-
-    private fun displayDishes(dishresult: DishBasket) {
+    private fun displayDishes(dishResult: DishBasket) {
         binding.basketItem.layoutManager = LinearLayoutManager(this)
-        binding.basketItem.adapter = BasketAdapter(dishresult.dishName) {
-            dishresult.dishName.remove(it)
-            updateBasket(dishresult)
+        binding.basketItem.adapter = BasketAdapter(dishResult.dishName) {
+            dishResult.dishName.remove(it)
+            updateBasket(dishResult)
             invalidateOptionsMenu()
         }
 

@@ -16,7 +16,7 @@ import fr.isen.perucca.androiderestaurant.model.DishResult
 import org.json.JSONObject
 import fr.isen.perucca.androiderestaurant.model.DishModel
 
-class DishesActivity : ToolActivity(){
+class DishesActivity : ToolActivity() {
     private lateinit var binding: ActivityDishesBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +31,7 @@ class DishesActivity : ToolActivity(){
         }
 
     }
+
     private fun loadDishesFromCategory(category: String) {
         val queue = Volley.newRequestQueue(this)
         val url = "http://test.api.catering.bluecodegames.com/menu"
@@ -43,7 +44,9 @@ class DishesActivity : ToolActivity(){
                 val gson = Gson()
                 val dishresult = gson.fromJson(response.toString(), DishResult::class.java)
 
-                displayDishes(dishresult.data.firstOrNull(){it.name_fr==category}?.items ?: listOf())
+                displayDishes(
+                    dishresult.data.firstOrNull() { it.name_fr == category }?.items ?: listOf()
+                )
             }, {
                 Log.e("DishActivity", "Erreur lors de la récupération de la liste des plats")
             })
@@ -57,7 +60,7 @@ class DishesActivity : ToolActivity(){
         queue.add(request)
     }
 
-    private fun displayDishes(dishresult : List<DishModel>){
+    private fun displayDishes(dishresult: List<DishModel>) {
 
         //}
         // getting the recyclerview by its id
@@ -67,7 +70,7 @@ class DishesActivity : ToolActivity(){
         recyclerview.layoutManager = LinearLayoutManager(this)
 
         binding.dishesItem.layoutManager = LinearLayoutManager(this)
-        binding.dishesItem.adapter = DishAdapter(dishresult, ) {
+        binding.dishesItem.adapter = DishAdapter(dishresult) {
 
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra("dish", it)

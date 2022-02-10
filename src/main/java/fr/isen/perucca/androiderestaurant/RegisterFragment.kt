@@ -100,9 +100,10 @@ class RegisterFragment : Fragment() {
                 1f
             )
             queue.add(request)
-        }
-        else Snackbar.make(binding.root, "Informations mal renseignées", Snackbar.LENGTH_LONG).show()
+        } else Snackbar.make(binding.root, "Informations mal renseignées", Snackbar.LENGTH_LONG)
+            .show()
     }
+
     companion object {
         const val USER_ID = "USER_ID"
     }

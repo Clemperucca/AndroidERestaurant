@@ -43,14 +43,13 @@ class OrderActivity : AppCompatActivity() {
                 val queue = Volley.newRequestQueue(this)
                 val url = "http://test.api.catering.bluecodegames.com/user/order"
                 val jsonObject = jsonData
-                val recup = File(cacheDir.absolutePath+filename).readText()
+                val recup = File(cacheDir.absolutePath + filename).readText()
                 val resultat = Gson().fromJson(recup, DishBasket::class.java)
                 val request = JsonObjectRequest(
                     Request.Method.POST, url, jsonObject,
                     { response ->
                         if (resultat.quantity == 0) displayPage(true)
                         else displayPage(false)
-
 
 
                     }, {
@@ -64,8 +63,7 @@ class OrderActivity : AppCompatActivity() {
                 )
                 queue.add(request)
             } else displayPage(true)
-        }
-        else displayPage(true)
+        } else displayPage(true)
     }
 
     private fun displayPage(error: Boolean) {

@@ -8,6 +8,23 @@
     android:background="@drawable/fondmain">
 
     <Button
+        android:id="@+id/mainTitle"
+        android:layout_width="295dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/main"
+        android:fontFamily="@font/aclonica"
+        android:text="@string/title4"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorLink="@color/main"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/button_entries"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,29 +73,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="122dp"
-        android:layout_height="177dp"
+        android:layout_width="118dp"
+        android:layout_height="157dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.001"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/michael_jackson___icon_svg" />
-
-    <Button
-        android:id="@+id/mainTitle"
-        android:layout_width="295dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/main"
-        android:fontFamily="@font/aclonica"
-        android:text="@string/title4"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textColorLink="@color/main"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

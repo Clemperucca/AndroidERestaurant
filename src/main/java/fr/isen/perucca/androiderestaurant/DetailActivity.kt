@@ -63,7 +63,7 @@ class DetailActivity : ToolActivity() {
                 var basketNumberOfElement: Int
                 Snackbar.make(it, "Ajouté au panier", Snackbar.LENGTH_LONG).show()
                 if (File(cacheDir.absolutePath + filename).readText().isNotEmpty()) {
-                    val recup = File(cacheDir.absolutePath + filename).bufferedReader().readText();
+                    val recup = File(cacheDir.absolutePath + filename).bufferedReader().readText()
                     val resultat = Gson().fromJson(recup, DishBasket::class.java)
                     basketNumberOfElement = resultat.quantity
                     for (j in resultat.dishName.indices) {

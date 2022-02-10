@@ -32,30 +32,30 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var buttonValidate = binding.buttonValidate
-        buttonValidate.setOnClickListener(){
+        buttonValidate.setOnClickListener() {
             Login()
         }
     }
+
     private fun Login() {
         val params = HashMap<String, String>()
-        params["id_shop"]="1"
+        params["id_shop"] = "1"
         params["email"] = binding.emailInput.text.toString()
         params["password"] = binding.passwordInput.text.toString()
         var errorBool: Boolean
         errorBool = true
-        if (TextUtils.isEmpty(binding.emailInput.text)){
+        if (TextUtils.isEmpty(binding.emailInput.text)) {
             binding.email.error = getString(R.string.error)
             errorBool = false
-        }
-        else binding.email.error = null
-        if (TextUtils.isEmpty(binding.passwordInput.text)){
+        } else binding.email.error = null
+        if (TextUtils.isEmpty(binding.passwordInput.text)) {
             binding.password.error = getString(R.string.error)
             errorBool = false
-        }
-        else binding.password.error = null
+        } else binding.password.error = null
         if (errorBool) {
             val queue = Volley.newRequestQueue(requireContext())
             val url = "http://test.api.catering.bluecodegames.com/user/login"
@@ -86,6 +86,7 @@ class LoginFragment : Fragment() {
             queue.add(request)
         }
     }
+
     companion object {
         const val USER_ID = "USER_ID"
     }
