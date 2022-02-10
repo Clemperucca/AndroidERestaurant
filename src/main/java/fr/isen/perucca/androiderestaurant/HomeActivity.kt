@@ -3,13 +3,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.widget.Button
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.perucca.androiderestaurant.databinding.ActivityHomeBinding
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : ToolActivity(){
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,19 +21,19 @@ class HomeActivity : AppCompatActivity() {
         val buttonDishes = binding.buttonDishes
         val buttonDeserts = binding.buttonDesert
 
-        //linking home buttons to pages using the changeActivity function
+
         buttonEntries.setOnClickListener {
-            changeActivity(getString(R.string.home_starters))
+            changeActivity(getString(R.string.home_entries))
         }
         buttonDishes.setOnClickListener {
-            changeActivity(getString(R.string.home_dish))
+            changeActivity(getString(R.string.home_dishes))
         }
         buttonDeserts.setOnClickListener {
-            changeActivity(getString(R.string.home_dessert))
+            changeActivity(getString(R.string.home_deserts))
         }
 
     }
-    //function for changing pages
+
     private fun changeActivity(category:String) {
         val changePage: Intent = Intent(this, DishesActivity::class.java)
         changePage.putExtra("category_type",category)
@@ -40,4 +41,3 @@ class HomeActivity : AppCompatActivity() {
         startActivity(changePage)
     }
 }
-
